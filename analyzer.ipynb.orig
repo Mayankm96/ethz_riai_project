@@ -2,9 +2,25 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 583,
+<<<<<<< HEAD
+   "execution_count": 282,
+=======
+   "execution_count": 455,
+>>>>>>> bmdev
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "ename": "ImportError",
+     "evalue": "cannot import name 'find_llinearibrary'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mImportError\u001b[0m                               Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-282-19658d149e66>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     15\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0melina_lincons0\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0;34m*\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     16\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mctypes\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 17\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mctypes\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mutil\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mfind_llinearibrary\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     18\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mgurobipy\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0;34m*\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     19\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mtime\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mImportError\u001b[0m: cannot import name 'find_llinearibrary'"
+     ]
+    }
+   ],
    "source": [
     "import sys\n",
     "sys.path.insert(0, '../ELINA/python_interface/')\n",
@@ -22,7 +38,7 @@
     "from elina_linexpr0 import *\n",
     "from elina_lincons0 import *\n",
     "import ctypes\n",
-    "from ctypes.util import find_library\n",
+    "from ctypes.util import find_llinearibrary\n",
     "from gurobipy import *\n",
     "import time\n",
     "from pprint import pprint"
@@ -30,7 +46,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 584,
+<<<<<<< HEAD
+   "execution_count": null,
+=======
+   "execution_count": 456,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -40,7 +60,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 585,
+<<<<<<< HEAD
+   "execution_count": null,
+=======
+   "execution_count": 457,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -50,7 +74,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 586,
+<<<<<<< HEAD
+   "execution_count": 283,
+=======
+   "execution_count": 458,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -67,7 +95,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 587,
+<<<<<<< HEAD
+   "execution_count": 284,
+=======
+   "execution_count": 459,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -83,7 +115,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 588,
+<<<<<<< HEAD
+   "execution_count": 285,
+=======
+   "execution_count": 460,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -99,7 +135,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 589,
+<<<<<<< HEAD
+   "execution_count": 286,
+=======
+   "execution_count": 461,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -124,7 +164,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 590,
+<<<<<<< HEAD
+   "execution_count": 287,
+=======
+   "execution_count": 462,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -139,7 +183,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 591,
+<<<<<<< HEAD
+   "execution_count": 288,
+=======
+   "execution_count": 463,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -165,7 +213,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 592,
+<<<<<<< HEAD
+   "execution_count": 289,
+=======
+   "execution_count": 464,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -182,7 +234,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 593,
+<<<<<<< HEAD
+   "execution_count": 290,
+=======
+   "execution_count": 465,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -202,7 +258,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 594,
+<<<<<<< HEAD
+   "execution_count": 291,
+=======
+   "execution_count": 466,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -217,7 +277,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 595,
+<<<<<<< HEAD
+   "execution_count": 292,
+=======
+   "execution_count": 467,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -309,7 +373,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 596,
+<<<<<<< HEAD
+   "execution_count": 293,
+=======
+   "execution_count": 468,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -351,7 +419,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 597,
+<<<<<<< HEAD
+   "execution_count": 294,
+=======
+   "execution_count": 469,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -395,11 +467,19 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 598,
+<<<<<<< HEAD
+   "execution_count": 295,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def get_relu_hidden_bounds_using_box(man, weights, biases, input_LB, input_UB, num_in_pixels):\n",
+=======
+   "execution_count": 470,
    "metadata": {},
    "outputs": [],
    "source": [
     "def get_relu_hidden_bounds_using_box(man, weights, biases, input_LB, input_UB, num_in_pixels, verbose=False):\n",
+>>>>>>> bmdev
     "    '''\n",
     "    This function calculates the bounds of a ReLU operation followed by a hidden layer. \n",
     "    INPUT:\n",
@@ -438,11 +518,18 @@
     "    # calculate number of outputs\n",
     "    num_out_pixels = len(weights)\n",
     "    \n",
+<<<<<<< HEAD
+    "    print(\"[Network] Input pixels: \" + str(num_in_pixels))\n",
+    "    print(\"[Network] Shape of weights: \" + str(np.shape(weights)))\n",
+    "    print(\"[Network] Shape of biases: \" + str(np.shape(biases)))\n",
+    "    print(\"[Network] Out pixels: \" + str(num_out_pixels))\n",
+=======
     "    if verbose:\n",
     "        print(\"[Network] Input pixels: \" + str(num_in_pixels))\n",
     "        print(\"[Network] Shape of weights: \" + str(np.shape(weights)))\n",
     "        print(\"[Network] Shape of biases: \" + str(np.shape(biases)))\n",
     "        print(\"[Network] Out pixels: \" + str(num_out_pixels))\n",
+>>>>>>> bmdev
     "\n",
     "    # Create number of neurons in the layer and populate it\n",
     "    # with the number of inputs to each neuron in the layer\n",
@@ -471,10 +558,17 @@
     "    # Remove dimensions from an ElinaAbstract0\n",
     "    elina_abstract0_remove_dimensions(man, True, element, dimrem)\n",
     "    elina_dimchange_free(dimrem)\n",
+<<<<<<< HEAD
     "    \n",
     "    # get bounds for each output neuron\n",
     "    bounds = elina_abstract0_to_box(man,element)\n",
     "    \n",
+=======
+    "    \n",
+    "    # get bounds for each output neuron\n",
+    "    bounds = elina_abstract0_to_box(man,element)\n",
+    "    \n",
+>>>>>>> bmdev
     "    output_LB = np.zeros((num_out_pixels, 1), float)\n",
     "    output_UB = np.zeros((num_out_pixels, 1), float)\n",
     "    for j in range(num_out_pixels):\n",
@@ -490,7 +584,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 599,
+<<<<<<< HEAD
+   "execution_count": 296,
+=======
+   "execution_count": 471,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
@@ -546,11 +644,19 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 600,
+<<<<<<< HEAD
+   "execution_count": 297,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def get_hidden_bounds_using_box(man, weights, biases, input_LB, input_UB, num_in_pixels):\n",
+=======
+   "execution_count": 472,
    "metadata": {},
    "outputs": [],
    "source": [
     "def get_hidden_bounds_using_box(man, weights, biases, input_LB, input_UB, num_in_pixels, verbose=False):\n",
+>>>>>>> bmdev
     "    '''\n",
     "    This function calculates the bounds of a ReLU operation followed by a hidden layer. \n",
     "    INPUT:\n",
@@ -583,17 +689,25 @@
     "    # calculate number of outputs\n",
     "    num_out_pixels = len(weights)\n",
     "    \n",
+<<<<<<< HEAD
+    "    print(\"[Network] Input pixels: \" + str(num_in_pixels))\n",
+    "    print(\"[Network] Shape of weights: \" + str(np.shape(weights)))\n",
+    "    print(\"[Network] Shape of biases: \" + str(np.shape(biases)))\n",
+    "    print(\"[Network] Out pixels: \" + str(num_out_pixels))\n",
+=======
     "    if verbose:\n",
     "        print(\"[Network] Input pixels: \" + str(num_in_pixels))\n",
     "        print(\"[Network] Shape of weights: \" + str(np.shape(weights)))\n",
     "        print(\"[Network] Shape of biases: \" + str(np.shape(biases)))\n",
     "        print(\"[Network] Out pixels: \" + str(num_out_pixels))\n",
+>>>>>>> bmdev
     "\n",
     "    # Create number of neurons in the layer and populate it\n",
     "    # with the number of inputs to each neuron in the layer\n",
     "    dimadd = elina_dimchange_alloc(0, num_out_pixels)    \n",
     "    for i in range(num_out_pixels):\n",
     "        dimadd.contents.dim[i] = num_in_pixels\n",
+<<<<<<< HEAD
     "\n",
     "    # Add dimensions to an ElinaAbstract0 pointer i.e. element\n",
     "    elina_abstract0_add_dimensions(man, True, element, dimadd, False)\n",
@@ -608,6 +722,22 @@
     "        element = elina_abstract0_assign_linexpr_array(man, True, element, tdim, linexpr0, 1, None)\n",
     "        var += 1\n",
     "\n",
+=======
+    "\n",
+    "    # Add dimensions to an ElinaAbstract0 pointer i.e. element\n",
+    "    elina_abstract0_add_dimensions(man, True, element, dimadd, False)\n",
+    "    elina_dimchange_free(dimadd)\n",
+    "\n",
+    "    # Create the linear expression associated each neuron\n",
+    "    var = num_in_pixels\n",
+    "    for i in range(num_out_pixels):\n",
+    "        tdim = ElinaDim(var)\n",
+    "        linexpr0 = generate_linexpr0(weights[i], biases[i], num_in_pixels)\n",
+    "        # Parallel assignment of several dimensions of an ElinaAbstract0 by using an ElinaLinexpr0Array\n",
+    "        element = elina_abstract0_assign_linexpr_array(man, True, element, tdim, linexpr0, 1, None)\n",
+    "        var += 1\n",
+    "\n",
+>>>>>>> bmdev
     "    # Pointer to which semantics we want to follow.\n",
     "    dimrem = elina_dimchange_alloc(0, num_in_pixels)\n",
     "    for i in range(num_in_pixels):\n",
@@ -624,13 +754,24 @@
     "    output_UB = np.zeros((num_out_pixels, 1), float)\n",
     "    for j in range(num_out_pixels):\n",
     "        output_LB[j] = bounds[j].contents.inf.contents.val.dbl\n",
+<<<<<<< HEAD
+    "        output_UB[j] = bounds[j].contents.sup.contents.val.dbl\n",
+    "    \n",
+=======
     "        output_UB[j] = bounds[j].contents.sup.contents.val.dbl    \n",
+>>>>>>> bmdev
     "    \n",
     "    # free out the memory allocations\n",
     "    elina_interval_array_free(bounds, num_out_pixels)\n",
     "    elina_abstract0_free(man, element)\n",
     "    \n",
     "    return output_LB, output_UB, num_out_pixels"
+<<<<<<< HEAD
+   ]
+  },
+  {
+   "cell_type": "markdown",
+=======
    ]
   },
   {
@@ -642,10 +783,13 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 601,
+   "execution_count": 525,
+>>>>>>> bmdev
    "metadata": {},
-   "outputs": [],
    "source": [
+<<<<<<< HEAD
+    "# Get Bounds using Linear Programming"
+=======
     "def relu_operation(input_LB, input_UB, num_in_pixels):\n",
     "    \"\"\"\n",
     "    This function computes ReLU.\n",
@@ -683,21 +827,37 @@
     "            mu_linear[j] = - lamda_linear[j] * l\n",
     "\n",
     "    return nontriv_relu, output_LB, output_UB, lamda_linear, mu_linear"
+>>>>>>> bmdev
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 602,
+<<<<<<< HEAD
+   "execution_count": 375,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def get_bounds_using_linear(weights, biases, prev_lb, prev_ub):\n",
+=======
+   "execution_count": 557,
    "metadata": {},
    "outputs": [],
    "source": [
     "def get_relu_hidden_bounds_using_linear_MB(weights, biases, prev_lb, prev_ub, num_in_pixels, verbose=True, gur_verbose=False):\n",
+>>>>>>> bmdev
     "    \"\"\"\n",
     "    RETURN: \n",
     "            - out_lb: Array of output lower bounds\n",
     "            - out_ub: Array of output upper bounds\n",
     "            - n_out: dimension of output\n",
     "    \"\"\"\n",
+<<<<<<< HEAD
+    "    m = Model(\"LP\")\n",
+    "    # Preprocessing\n",
+    "    prev_lb, prev_ub = prev_lb.squeeze(), prev_ub.squeeze()\n",
+    "    # Get input and output dimensions\n",
+    "    n_in, n_out = prev_lb.shape[0], weights.shape[1]\n",
+=======
     "    debug = False\n",
     "    m = Model(\"LP\")\n",
     "    m.setParam( 'OutputFlag', gur_verbose )\n",
@@ -705,6 +865,7 @@
     "    prev_lb, prev_ub = prev_lb.squeeze(), prev_ub.squeeze()\n",
     "    # Get input and output dimensions\n",
     "    n_in, n_out = num_in_pixels, weights.shape[0]\n",
+>>>>>>> bmdev
     "    # Create outputs\n",
     "    out_lb, out_ub = np.zeros(n_out), np.zeros(n_out)\n",
     "\n",
@@ -712,12 +873,33 @@
     "    nontriv_relu, trivial_lb, trivial_ub, lambdas_, mus_ = relu_operation(prev_lb, prev_ub, n_in)\n",
     "    \n",
     "    # Create input Variable and constrains\n",
+<<<<<<< HEAD
+    "    x = m.addVars(n_in, lb=prev_lb, ub=prev_ub, vtype=GRB.CONTINUOUS)\n",
+=======
     "    x = m.addVars(n_in, lb=prev_lb, ub=prev_ub, vtype=GRB.CONTINUOUS, name=\"x\")\n",
+>>>>>>> bmdev
     "    \n",
     "    # Create Relu Output variable\n",
     "    relu_out = m.addVars(n_in, vtype=GRB.CONTINUOUS, name=\"relu_out\")\n",
     "    # Create Relu Output constrain\n",
     "    # Nontrivial cases\n",
+<<<<<<< HEAD
+    "    m.addConstrs(relu_out[j] >= 0 for j in range(len(relu_out)) if nontriv_relu[j])\n",
+    "    m.addConstrs(relu_out[j] >= x[j] for j in range(len(relu_out)) if nontriv_relu[j])\n",
+    "    m.addConstrs(relu_out[j] <= lambdas_[j] * x[j] + mus_[j] for j in range(len(relu_out))  if nontriv_relu[j])\n",
+    "    # Trivial cases\n",
+    "    m.addConstrs(relu_out[j] >= trivial_lb[j] for j in range(len(relu_out)) if not nontriv_relu[j])\n",
+    "    m.addConstrs(relu_out[j] <= trivial_ub[j] for j in range(len(relu_out)) if not nontriv_relu[j])\n",
+    "    \n",
+    "    for i_out in range(n_out):\n",
+    "        obj = LinExpr()\n",
+    "        obj += biases[i_out]\n",
+    "        for j_out in range(weights.shape[1]):\n",
+    "            obj +=  relu_out[i_out]*weights[i_out,j_out]\n",
+    "        \n",
+    "        # Find Lower Bound\n",
+    "        m.setObjective(obj, GRB.MINIMIZE)\n",
+=======
     "    m.addConstrs((relu_out[j] >= 0 for j in range(len(relu_out)) if nontriv_relu[j]), name=\"nontrivial_zero_lb\")\n",
     "    m.addConstrs((relu_out[j] >= x[j] for j in range(len(relu_out)) if nontriv_relu[j]), name=\"nontrivial_variable_lb\")\n",
     "    m.addConstrs((relu_out[j] <= lambdas_[j] * x[j] + mus_[j] for j in range(len(relu_out))  if nontriv_relu[j]), name=\"nontrivial_line_ub\")\n",
@@ -735,6 +917,7 @@
     "        if debug:\n",
     "            m.write(\"file.lp\")\n",
     "            set_trace()\n",
+>>>>>>> bmdev
     "        m.optimize()\n",
     "        out_lb[i_out] = m.objVal\n",
     "        m.reset()\n",
@@ -744,12 +927,127 @@
     "        out_ub[i_out] = m.objVal\n",
     "        m.reset() \n",
     "            \n",
+<<<<<<< HEAD
+    "    return out_lb, out_ub, len(out_ub)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Define operations on abstract domain using linear approximation"
+=======
     "    return out_lb, out_ub, len(out_ub)\n"
+>>>>>>> bmdev
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 603,
+<<<<<<< HEAD
+   "execution_count": 385,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def relu_operation(input_LB, input_UB, num_in_pixels):\n",
+    "    \"\"\"\n",
+    "    This function computes ReLU.\n",
+    "    INPUT\n",
+    "        - input_LB: lower bound of the inputs to the ReLU\n",
+    "        - input_UB: upper bound of the inputs to the ReLU\n",
+    "        - num_in_pixels: number of inputs to ReLU    \n",
+    "    OUTPUT:\n",
+    "        - nontriv_relu: boolean array for locations where ReLU operation is non-trivial\n",
+    "        - output_LB: lower bound of outputs \n",
+    "        - output_UB: upper bound of outputs\n",
+    "        - lamda_linear: slope of linear approximator line when ReLU non-trivial\n",
+    "        - mu_linear: y-intercept of linear approximator line when ReLU non-trivial\n",
+    "    \n",
+    "    \"\"\"\n",
+    "    \n",
+    "    output_LB = np.zeros((num_in_pixels), float)\n",
+    "    output_UB = np.zeros((num_in_pixels), float)\n",
+    "    lamda_linear = np.zeros((num_in_pixels), float)\n",
+    "    mu_linear = np.zeros((num_in_pixels), float)\n",
+    "    nontriv_relu = np.zeros((num_in_pixels), bool)\n",
+    "\n",
+    "    for j in range(num_in_pixels):\n",
+    "        u = input_UB[j]\n",
+    "        l = input_LB[j]\n",
+    "        if u <= 0:\n",
+    "            output_LB[j] = 0.0\n",
+    "            output_UB[j] = 0.0\n",
+    "        elif l >= 0:\n",
+    "            output_LB[j] = l\n",
+    "            output_UB[j] = u\n",
+    "        else:\n",
+    "            nontriv_relu[j] = True\n",
+    "            lamda_linear[j] = u / (u - l)\n",
+    "            mu_linear[j] = - lamda_linear[j] * l\n",
+    "\n",
+    "    return nontriv_relu, output_LB, output_UB, lamda_linear, mu_linear"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 386,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "IndentationError",
+     "evalue": "expected an indented block (<ipython-input-386-cc9c5bb13feb>, line 30)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-386-cc9c5bb13feb>\"\u001b[0;36m, line \u001b[0;32m30\u001b[0m\n\u001b[0;31m    relu_in = m.addVars(n_in, lb=prev_lb, ub=prev_ub, vtype=GRB.CONTINUOUS)\u001b[0m\n\u001b[0m    ^\u001b[0m\n\u001b[0;31mIndentationError\u001b[0m\u001b[0;31m:\u001b[0m expected an indented block\n"
+     ]
+    }
+   ],
+   "source": [
+    "def get_relu_hidden_bounds_using_linear(weights, biases, input_LB, input_UB, num_in_pixels):\n",
+    "    '''\n",
+    "    This function calculates the bounds of a ReLU operation followed by a hidden layer. \n",
+    "    INPUT:\n",
+    "        - man: pointer to elina manager\n",
+    "        - weights: weights of the hidden layer\n",
+    "        - biases: biases of the hidden layer\n",
+    "        - input_LB: lower bound of the inputs to the ReLU\n",
+    "        - input_UB: upper bound of the inputs to the ReLU\n",
+    "        - num_in_pixels: number of inputs to ReLU\n",
+    "    \n",
+    "    OUTPUT:\n",
+    "        - output_LB: lower bound of the outputs from hidden layer\n",
+    "        - output_UB: upper bound of the outputs from hidden layer\n",
+    "        - num_out_pixels: number of outputs of hidden layer\n",
+    "    '''\n",
+    "    \n",
+    "    # Perform the ReLU operation\n",
+    "    relu_nontriv, relu_LB, relu_UB, lamda_linear, mu_linear = relu_operation(input_LB, input_UB, num_in_pixels)\n",
+    "    \n",
+    "    # Create linear programming model \n",
+    "    m = model(\"LP\")\n",
+    "    \n",
+    "    # Add \n",
+    "    for j in range(num_in_pixels):\n",
+    "        if relu_nontriv[j] == False:\n",
+    "            \n",
+    "    \n",
+    "    # Create input Variable and constrains\n",
+    "    relu_in = m.addVars(n_in, lb=prev_lb, ub=prev_ub, vtype=GRB.CONTINUOUS)\n",
+    "    \n",
+    "    # Create Relu Output variable\n",
+    "    relu_out = m.addVars(n_in, vtype=GRB.CONTINUOUS)\n",
+    "    # Create Relu Output constrain\n",
+    "    m.addConstrs(relu_out\n",
+    "\n",
+    "    \n",
+    "    m.addConstrs(\n",
+    "    \n",
+    "    for bound in previous_bounds:\n",
+    "        m = addReluConstr(m, bound[0], bound[0])\n",
+    "    \n",
+    "    # Iterate over output neurons\n",
+    "    for weight, bias in zip(weights, biases):"
+=======
+   "execution_count": 558,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -842,6 +1140,7 @@
     "            output_UB[j] = grbmodel.objVal\n",
     "            \n",
     "    return output_LB, output_UB, num_out_pixels"
+>>>>>>> bmdev
    ]
   },
   {
@@ -853,7 +1152,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 604,
+<<<<<<< HEAD
+   "execution_count": 378,
+=======
+   "execution_count": 559,
    "metadata": {},
    "outputs": [
     {
@@ -873,32 +1175,29 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 616,
+   "execution_count": 568,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
-    "netname = '/home/riai2018/mnist_nets/1024.txt'\n",
+    "netname = '/home/riai2018/mnist_nets/mnist_relu_9_100.txt'\n",
     "specname = '/home/riai2018/mnist_images/img1.txt'\n",
+<<<<<<< HEAD
+    "epsilon = 0.01"
+=======
     "epsilon = 0.0045"
+>>>>>>> bmdev
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 617,
+<<<<<<< HEAD
+   "execution_count": 379,
+=======
+   "execution_count": 569,
+>>>>>>> bmdev
    "metadata": {},
-   "outputs": [
-    {
-     "ename": "FileNotFoundError",
-     "evalue": "[Errno 2] No such file or directory: '/home/riai2018/mnist_nets/1024.txt'",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[0;31mFileNotFoundError\u001b[0m                         Traceback (most recent call last)",
-      "\u001b[0;32m<ipython-input-617-0bd52f7e99ed>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0;32mwith\u001b[0m \u001b[0mopen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnetname\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'r'\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mnetfile\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m     \u001b[0mnetstring\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mnetfile\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mread\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0;32mwith\u001b[0m \u001b[0mopen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mspecname\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'r'\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mspecfile\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m     \u001b[0mspecstring\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mspecfile\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mread\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0mnn\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mparse_net\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnetstring\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-      "\u001b[0;31mFileNotFoundError\u001b[0m: [Errno 2] No such file or directory: '/home/riai2018/mnist_nets/1024.txt'"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "with open(netname, 'r') as netfile:\n",
     "    netstring = netfile.read()\n",
@@ -911,7 +1210,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 618,
+<<<<<<< HEAD
+   "execution_count": 380,
+=======
+   "execution_count": 570,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [
     {
@@ -947,15 +1250,18 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 619,
+<<<<<<< HEAD
+   "execution_count": 381,
+=======
+   "execution_count": 571,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Test label: 0\n",
-      "image not correctly classified by the network. expected label  2  classified label:  0\n"
+      "Test label: 2\n"
      ]
     }
    ],
@@ -985,13 +1291,19 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 620,
+<<<<<<< HEAD
+   "execution_count": 382,
+=======
+   "execution_count": 572,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [],
    "source": [
     "num_pixels = len(LB_N0)\n",
     "numlayer = nn.numlayer \n",
     "man = elina_box_manager_alloc()"
+<<<<<<< HEAD
+=======
    ]
   },
   {
@@ -999,6 +1311,7 @@
    "metadata": {},
    "source": [
     "## 2) Iterate over each layer in the network and define the neural network function"
+>>>>>>> bmdev
    ]
   },
   {
@@ -1010,7 +1323,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 621,
+<<<<<<< HEAD
+   "execution_count": 383,
+=======
+   "execution_count": 581,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [
     {
@@ -1020,6 +1337,31 @@
       "Layer Number: 0\n",
       "HIDDEN!\n",
       "[Network] Input pixels: 784\n",
+<<<<<<< HEAD
+      "[Network] Shape of weights: (10, 784)\n",
+      "[Network] Shape of biases: (10,)\n",
+      "[Network] Out pixels: 10\n",
+      "---------------\n",
+      "Layer Number: 1\n",
+      "RELU + HIDDEN!\n"
+     ]
+    },
+    {
+     "ename": "GurobiError",
+     "evalue": "Unsupported type (<class 'numpy.ndarray'>) for LinExpr addition argument",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mGurobiError\u001b[0m                               Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-383-c5da2a4ad8bc>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     24\u001b[0m                 \u001b[0moutput_LB\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0moutput_UB\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mnum_out_pixels\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mget_relu_hidden_bounds_using_box\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mman\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mweights\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mbiases\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0minput_LB\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0minput_UB\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mnum_in_pixels\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     25\u001b[0m             \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 26\u001b[0;31m                 \u001b[0moutput_LB\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0moutput_UB\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mnum_out_pixels\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mget_bounds_using_linear\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mweights\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mbiases\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0minput_LB\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0minput_UB\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     27\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     28\u001b[0m         \u001b[0;31m# Iterate to next layer\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m<ipython-input-375-23ba81e55769>\u001b[0m in \u001b[0;36mget_bounds_using_linear\u001b[0;34m(weights, biases, prev_lb, prev_ub)\u001b[0m\n\u001b[1;32m     26\u001b[0m     \u001b[0mm\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0maddConstrs\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m>=\u001b[0m \u001b[0;36m0\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mj\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0mnontriv_relu\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     27\u001b[0m     \u001b[0mm\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0maddConstrs\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m>=\u001b[0m \u001b[0mx\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mj\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0mnontriv_relu\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 28\u001b[0;31m     \u001b[0mm\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0maddConstrs\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m<=\u001b[0m \u001b[0mlambdas_\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m*\u001b[0m \u001b[0mx\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0mmus_\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mj\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m  \u001b[0;32mif\u001b[0m \u001b[0mnontriv_relu\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     29\u001b[0m     \u001b[0;31m# Trivial cases\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     30\u001b[0m     \u001b[0mm\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0maddConstrs\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m>=\u001b[0m \u001b[0mtrivial_lb\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mj\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0mnontriv_relu\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32mmodel.pxi\u001b[0m in \u001b[0;36mgurobipy.Model.addConstrs\u001b[0;34m()\u001b[0m\n",
+      "\u001b[0;32mmodel.pxi\u001b[0m in \u001b[0;36mgurobipy.Model.addConstr\u001b[0;34m()\u001b[0m\n",
+      "\u001b[0;32mlinexpr.pxi\u001b[0m in \u001b[0;36mgurobipy.LinExpr.__sub__\u001b[0;34m()\u001b[0m\n",
+      "\u001b[0;32mlinexpr.pxi\u001b[0m in \u001b[0;36mgurobipy.LinExpr.__add__\u001b[0;34m()\u001b[0m\n",
+      "\u001b[0;32mlinexpr.pxi\u001b[0m in \u001b[0;36mgurobipy.LinExpr.add\u001b[0;34m()\u001b[0m\n",
+      "\u001b[0;31mGurobiError\u001b[0m: Unsupported type (<class 'numpy.ndarray'>) for LinExpr addition argument"
+=======
       "[Network] Shape of weights: (100, 784)\n",
       "[Network] Shape of biases: (100,)\n",
       "[Network] Out pixels: 100\n",
@@ -1446,7 +1788,13 @@
       "       [-1.07917789,  4.98265077],\n",
       "       [-3.02662616,  3.28796916],\n",
       "       [-4.65422881,  2.54579868],\n",
-      "       [-3.12190031,  2.57862552],\n",
+      "       [-3.12190031,  2.57862552],\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
       "       [-4.14414777,  2.59098778]])\n",
       "---------------\n",
       "Layer Number: 4\n",
@@ -1670,13 +2018,7 @@
       "[Network] Input pixels: 100\n",
       "[Network] Shape of weights: (100, 100)\n",
       "[Network] Shape of biases: (100,)\n",
-      "[Network] Out pixels: 100\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
+      "[Network] Out pixels: 100\n",
       "[OUTPUT] Bounds: \n",
       "array([[-149.61860803,  138.74090339],\n",
       "       [-159.67189498,  133.22662449],\n",
@@ -1918,6 +2260,7 @@
       "       [  -0.        , 3784.77064605],\n",
       "       [  -0.        , 3619.25085161]])\n",
       "---------------\n"
+>>>>>>> bmdev
      ]
     }
    ],
@@ -1926,10 +2269,13 @@
     "input_LB = LB_N0\n",
     "input_UB = UB_N0\n",
     "num_in_pixels = num_pixels\n",
+<<<<<<< HEAD
+=======
     "\n",
     "use_box = True\n",
     "use_MB = True\n",
     "verbose = True\n",
+>>>>>>> bmdev
     "\n",
     "for layerno in range(numlayer):\n",
     "    print(\"Layer Number: \" + str(layerno))\n",
@@ -1943,6 +2289,18 @@
     "        # only hidden layer\n",
     "        if (layerno == 0):\n",
     "            print(\"HIDDEN!\")\n",
+<<<<<<< HEAD
+    "            output_LB, output_UB, num_out_pixels = get_hidden_bounds_using_box(man, weights, biases, input_LB, input_UB, num_in_pixels)\n",
+    "        # ReLU + hidden layer\n",
+    "        else:\n",
+    "            print(\"RELU + HIDDEN!\")\n",
+    "            use_LP = True\n",
+    "            if not use_LP:\n",
+    "                output_LB, output_UB, num_out_pixels = get_relu_hidden_bounds_using_box(man, weights, biases, input_LB, input_UB, num_in_pixels)\n",
+    "            else:\n",
+    "                output_LB, output_UB, num_out_pixels = get_bounds_using_linear(weights, biases, input_LB, input_UB)\n",
+    "\n",
+=======
     "            output_LB, output_UB, num_out_pixels = get_hidden_bounds_using_box(man, weights, biases, input_LB, input_UB, num_in_pixels, verbose)\n",
     "        # ReLU + hidden layer\n",
     "        else:\n",
@@ -1955,6 +2313,7 @@
     "                else:\n",
     "                    output_LB, output_UB, num_out_pixels = get_relu_hidden_bounds_using_linear(weights, biases, input_LB, input_UB, num_in_pixels, verbose)\n",
     "                   \n",
+>>>>>>> bmdev
     "        # Iterate to next layer\n",
     "        input_LB = output_LB\n",
     "        input_UB = output_UB\n",
@@ -1975,21 +2334,95 @@
     "            pprint(np.concatenate([output_LB, output_UB], axis = 1))\n",
     "            \n",
     "        print('---------------')\n",
+<<<<<<< HEAD
+    "\n",
+    "        # only ReLU layer\n",
+    "        if(layerno + 1 == numlayer):\n",
+    "            print(\"RELU!\")\n",
+    "            output_LB, output_UB, num_out_pixels = get_relu_bounds_using_box(man, input_LB, input_UB, num_in_pixels)\n",
+    "            print('---------------')\n",
+=======
+>>>>>>> bmdev
     "            \n",
     "    else:\n",
     "        print(' net type not supported')"
    ]
   },
   {
+<<<<<<< HEAD
+   "cell_type": "code",
+   "execution_count": 384,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "> \u001b[0;32m/home/riai2018/analyzer/linexpr.pxi\u001b[0m(173)\u001b[0;36mgurobipy.LinExpr.add\u001b[0;34m()\u001b[0m\n",
+      "\n",
+      "ipdb> u\n",
+      "> \u001b[0;32m/home/riai2018/analyzer/linexpr.pxi\u001b[0m(440)\u001b[0;36mgurobipy.LinExpr.__add__\u001b[0;34m()\u001b[0m\n",
+      "\n",
+      "ipdb> u\n",
+      "> \u001b[0;32m/home/riai2018/analyzer/linexpr.pxi\u001b[0m(461)\u001b[0;36mgurobipy.LinExpr.__sub__\u001b[0;34m()\u001b[0m\n",
+      "\n",
+      "ipdb> u\n",
+      "> \u001b[0;32m/home/riai2018/analyzer/model.pxi\u001b[0m(2968)\u001b[0;36mgurobipy.Model.addConstr\u001b[0;34m()\u001b[0m\n",
+      "\n",
+      "ipdb> u\n",
+      "> \u001b[0;32m/home/riai2018/analyzer/model.pxi\u001b[0m(3072)\u001b[0;36mgurobipy.Model.addConstrs\u001b[0;34m()\u001b[0m\n",
+      "\n",
+      "ipdb> u\n",
+      "> \u001b[0;32m<ipython-input-375-23ba81e55769>\u001b[0m(28)\u001b[0;36mget_bounds_using_linear\u001b[0;34m()\u001b[0m\n",
+      "\u001b[0;32m     26 \u001b[0;31m    \u001b[0mm\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0maddConstrs\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m>=\u001b[0m \u001b[0;36m0\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mj\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0mnontriv_relu\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0m\u001b[0;32m     27 \u001b[0;31m    \u001b[0mm\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0maddConstrs\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m>=\u001b[0m \u001b[0mx\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mj\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0mnontriv_relu\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0m\u001b[0;32m---> 28 \u001b[0;31m    \u001b[0mm\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0maddConstrs\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m<=\u001b[0m \u001b[0mlambdas_\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m*\u001b[0m \u001b[0mx\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0mmus_\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mj\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m  \u001b[0;32mif\u001b[0m \u001b[0mnontriv_relu\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0m\u001b[0;32m     29 \u001b[0;31m    \u001b[0;31m# Trivial cases\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0m\u001b[0;32m     30 \u001b[0;31m    \u001b[0mm\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0maddConstrs\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m>=\u001b[0m \u001b[0mtrivial_lb\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mj\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrelu_out\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0mnontriv_relu\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0m\n",
+      "ipdb> lambdas_[j]\n",
+      "array([0.])\n",
+      "ipdb> lambdas_\n",
+      "array([[0.       ],\n",
+      "       [0.       ],\n",
+      "       [0.       ],\n",
+      "       [0.       ],\n",
+      "       [0.7410044],\n",
+      "       [0.       ],\n",
+      "       [0.       ],\n",
+      "       [0.       ],\n",
+      "       [0.       ],\n",
+      "       [0.       ]])\n",
+      "ipdb> lambdas_.shape\n",
+      "(10, 1)\n",
+      "ipdb> q\n"
+     ]
+    }
+   ],
+   "source": [
+    "%debug"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Check the verifiability of the network"
+=======
    "cell_type": "markdown",
    "metadata": {},
    "source": [
     "### Check the verifiability of the network"
+>>>>>>> bmdev
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 622,
+<<<<<<< HEAD
+   "execution_count": 67,
+=======
+   "execution_count": 575,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [
     {
@@ -2027,6 +2460,9 @@
     "                verified_flag = False\n",
     "                break\n",
     "\n",
+<<<<<<< HEAD
+    "elina_manager_free(man)   "
+=======
     "if(verified_flag):\n",
     "    print(\"verified\")\n",
     "else:\n",
@@ -2038,6 +2474,7 @@
    "metadata": {},
    "source": [
     "### For Linear Approximation"
+>>>>>>> bmdev
    ]
   },
   {
@@ -2049,7 +2486,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 623,
+<<<<<<< HEAD
+   "execution_count": 56,
+=======
+   "execution_count": 582,
    "metadata": {
     "scrolled": false
    },
@@ -2375,7 +2815,13 @@
       "       [-1.76031946e+00,  9.45701744e-01]])\n",
       "---------------\n",
       "Layer Number: 3\n",
-      "RELU + HIDDEN!\n",
+      "RELU + HIDDEN!\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
       "[OUTPUT] Bounds: \n",
       "array([[-3.71382628,  3.81262123],\n",
       "       [-3.52090096,  2.94502427],\n",
@@ -2479,13 +2925,7 @@
       "       [-4.14414777,  2.59098778]])\n",
       "---------------\n",
       "Layer Number: 4\n",
-      "RELU + HIDDEN!\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
+      "RELU + HIDDEN!\n",
       "[OUTPUT] Bounds: \n",
       "array([[-14.94162334,  10.68757199],\n",
       "       [ -9.69261222,  14.53207556],\n",
@@ -2693,7 +3133,13 @@
       "       [-52.4559246 ,  29.80232802]])\n",
       "---------------\n",
       "Layer Number: 6\n",
-      "RELU + HIDDEN!\n",
+      "RELU + HIDDEN!\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
       "[OUTPUT] Bounds: \n",
       "array([[-149.61860803,  138.74090339],\n",
       "       [-159.67189498,  133.22662449],\n",
@@ -2797,13 +3243,7 @@
       "       [-157.29974395,  160.75838388]])\n",
       "---------------\n",
       "Layer Number: 7\n",
-      "RELU + HIDDEN!\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
+      "RELU + HIDDEN!\n",
       "[OUTPUT] Bounds: \n",
       "array([[-701.3876433 ,  423.62416316],\n",
       "       [-751.42554792,  400.58228458],\n",
@@ -3002,7 +3442,8 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 613,
+   "execution_count": 577,
+>>>>>>> bmdev
    "metadata": {},
    "outputs": [
     {
@@ -3048,12 +3489,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 614,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
+<<<<<<< HEAD
+   "source": []
+=======
    "source": [
     "elina_manager_free(man)"
    ]
+>>>>>>> bmdev
   }
  ],
  "metadata": {
