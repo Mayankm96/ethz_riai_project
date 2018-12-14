@@ -5,6 +5,7 @@ __pycache__/
 *.ilp
 *.lp
 *.mps
+*dummy*
 
 # C extensions
 *.so
