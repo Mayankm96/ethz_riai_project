@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 437,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -25,7 +25,6 @@
     "from ctypes.util import find_library\n",
     "from gurobipy import *\n",
     "import time\n",
-    "from datetime import datetime\n",
     "from pprint import pprint\n",
     "import copy\n",
     "import warnings\n",
@@ -36,7 +35,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 340,
+   "execution_count": 2,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -46,7 +45,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 341,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -63,7 +62,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 342,
+   "execution_count": 4,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -143,7 +142,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 343,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -163,7 +162,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 344,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -178,7 +177,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 345,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -277,7 +276,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 346,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -313,7 +312,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 347,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -358,7 +357,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 348,
+   "execution_count": 10,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -410,7 +409,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 349,
+   "execution_count": 11,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -466,7 +465,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 350,
+   "execution_count": 12,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -562,7 +561,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 351,
+   "execution_count": 13,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -626,13 +625,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 352,
+   "execution_count": 14,
    "metadata": {},
    "outputs": [],
    "source": [
     "# function to perform box analysis for all layers in the neural network nn\n",
-    "def perform_box_analysis(nn, LB_N0, UB_N0, verbose = False):\n",
+    "def perform_box_analysis(nn, LB_N0, UB_N0, start=0, end=None, verbose = False):\n",
     "    # create a list to store the bounds found through box approximation\n",
+    "    \n",
     "    LB_hidden_box_list = []\n",
     "    UB_hidden_box_list = []\n",
     "\n",
@@ -722,7 +722,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 353,
+   "execution_count": 15,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -737,18 +737,6 @@
     "    # We follow the following notations:\n",
     "    # z_hat_{i} = W_i * z_i + b_i, where i = {1, . . . , k}, and z_hat_{k} = y (ouput of NN)\n",
     "    # z_i = max(z_hat_{i-1} , 0),  where i = {2, . . . , k}, and z_1 = x (input to NN)\n",
-    "\n",
-    "    # for input layer:\n",
-    "    # Variable lower bound: Note that any value less than -1e20 is treated as negative infinity. \n",
-    "    num_in_pixels = len(LB_N0)\n",
-    "    img_vars = m.addVars(num_in_pixels, lb=LB_N0, ub=UB_N0, \\\n",
-    "                         vtype=GRB.CONTINUOUS, name=\"input_layer\")\n",
-    "    \n",
-    "    # for output of each ReLU\n",
-    "    z = []\n",
-    "    z.append(img_vars)\n",
-    "    # for output of each hidden layer\n",
-    "    z_hat = []\n",
     "\n",
     "    # Create variables for all layers and append to the list \n",
     "    m, z, z_hat = add_all_vars(m, numlayer, LB_N0, UB_N0, UB_hidden_box_list)\n",
@@ -820,7 +808,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 354,
+   "execution_count": 16,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -840,7 +828,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 355,
+   "execution_count": 17,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -912,7 +900,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 356,
+   "execution_count": 18,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -922,9 +910,6 @@
     "    Get final bounds using linear programming layerwise. If lp_freq > 1 linear bounds are only calculated every \n",
     "    lp_freq'th layer.\n",
     "    INPUT:\n",
-    "        - m: Gurobi model\n",
-    "        - z: List of Gurobi variables corresponding to pre-ReLU Layer (hidden)\n",
-    "        - z_hat: List of Gurobi variables corresponding to post-ReLU Laye\n",
     "        - nn: Neural Network as defined in initial code (contains layertypes, weights, etc.)\n",
     "        - numlayer: Number of Layers\n",
     "        - LB_N0: Lower Bound of perturbed image input\n",
@@ -1032,7 +1017,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 357,
+   "execution_count": 19,
    "metadata": {},
    "outputs": [
     {
@@ -1052,30 +1037,35 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 358,
+<<<<<<< HEAD
+   "execution_count": 326,
+=======
+   "execution_count": 20,
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
    "metadata": {},
    "outputs": [],
    "source": [
     "# netname = '/home/riai2018/mnist_nets/mnist_relu_3_10.txt'\n",
     "# specname = '/home/riai2018/mnist_images/img2.txt'\n",
     "# epsilon = 0.01072 NOT verified\n",
+<<<<<<< HEAD
+    "# epsilon = 0.01071 verified"
+=======
     "# epsilon = 0.01071 verified\n",
     "\n",
-    "netname = '/home/riai2018/mnist_nets/mnist_relu_6_20.txt'\n",
+    "netname = '/home/riai2018/mnist_nets/mnist_relu_9_100.txt'\n",
     "specname = '/home/riai2018/mnist_images/img2.txt'\n",
     "epsilon = 0.01"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "# Get perturbed label and Load NN (provided prediction for unperturbed is true)"
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 369,
+<<<<<<< HEAD
+   "execution_count": 338,
+=======
+   "execution_count": 21,
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
    "metadata": {},
    "outputs": [
     {
@@ -1109,7 +1099,7 @@
     "        \n",
     "    return LB_N0, UB_N0, nn, label, flag_wrong_label\n",
     "\n",
-    "netname = '/home/riai2018/mnist_nets/mnist_relu_6_20.txt'\n",
+    "netname = '/home/riai2018/mnist_nets/mnist_relu_9_100.txt'\n",
     "specname = '/home/riai2018/mnist_images/img2.txt'\n",
     "epsilon = 0.01\n",
     "LB_N0, UB_N0, nn, label, flag_wrong_label = load_nn(netname, specname, epsilon)"
@@ -1117,13 +1107,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 370,
+<<<<<<< HEAD
+   "execution_count": 328,
+=======
+   "execution_count": 22,
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
+      "ReLU\n",
+      "ReLU\n",
+      "ReLU\n",
       "ReLU\n",
       "ReLU\n",
       "ReLU\n",
@@ -1145,6 +1142,40 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "# Get perturbed label (provided prediction for unperturbed is true)"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 329,
+=======
+   "execution_count": 23,
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Test label: 1\n"
+     ]
+    }
+   ],
+   "source": [
+    "label, _ = analyze(nn,LB_N0,UB_N0,0) # Get label of unperturbed image, i.e. eps=0\n",
+    "print(\"Test label: \" + str(label))\n",
+    "\n",
+    "if(label == int(x0_low[0])):\n",
+    "    LB_N0, UB_N0 = get_perturbed_image(x0_low,epsilon)\n",
+    "else:\n",
+    "    print(\"image not correctly classified by the network. expected label \",int(x0_low[0]), \" classified label: \", label)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "# Start Verification"
    ]
   },
@@ -1157,7 +1188,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 371,
+<<<<<<< HEAD
+   "execution_count": 330,
+=======
+   "execution_count": 24,
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1168,7 +1203,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 372,
+<<<<<<< HEAD
+   "execution_count": 331,
+=======
+   "execution_count": 25,
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
    "metadata": {},
    "outputs": [
     {
@@ -1177,20 +1216,24 @@
      "text": [
       "--------- For Box ----------\n",
       "[OUTPUT] Bounds: \n",
-      "array([[ 0.        ,  2.5364939 ],\n",
-      "       [ 0.        , 18.05938972],\n",
-      "       [ 0.        ,  9.34363425],\n",
-      "       [ 0.        ,  6.84798068],\n",
-      "       [ 0.        ,  6.22299312],\n",
-      "       [ 0.        ,  3.42334266],\n",
-      "       [ 0.        ,  0.5614512 ],\n",
-      "       [ 0.        , 12.83356247],\n",
-      "       [ 0.        ,  9.04202529],\n",
-      "       [ 0.        ,  6.93112069]])\n",
+      "array([[    0.        ,  7656.84065734],\n",
+      "       [    0.        , 10723.55364166],\n",
+      "       [    0.        , 12794.46921982],\n",
+      "       [    0.        , 14282.59012712],\n",
+      "       [    0.        , 12696.00278132],\n",
+      "       [    0.        , 11125.62361616],\n",
+      "       [    0.        , 11830.95858255],\n",
+      "       [    0.        , 14150.82635457],\n",
+      "       [    0.        , 13454.7056269 ],\n",
+      "       [    0.        , 12883.35505366]])\n",
       "[VERIFY] Verification status: \n",
       "can not be verified\n",
       "----------------------------\n",
-      "Calculation time: 0.09864306449890137 s\n"
+<<<<<<< HEAD
+      "Calculation time: 0.0006110668182373047 s\n"
+=======
+      "Calculation time: 0.3645763397216797 s\n"
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
      ]
     }
    ],
@@ -1200,7 +1243,6 @@
     "print(\"[OUTPUT] Bounds: \")\n",
     "pprint(np.stack([LB_NN, UB_NN], axis = 1))\n",
     "print(\"[VERIFY] Verification status: \")\n",
-    "t = time.time()\n",
     "_, flag = verify_network(LB_N0, UB_N0, LB_NN, UB_NN, \\\n",
     "                         label, num_input_pixels = len(LB_N0), num_out_pixels = 10)\n",
     "print(\"----------------------------\")\n",
@@ -1233,16 +1275,26 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 373,
+<<<<<<< HEAD
+   "execution_count": 332,
+=======
+   "execution_count": 26,
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Number of relu layers: 6\n",
-      "Number of hidden layers: 6\n",
+<<<<<<< HEAD
+      "----------------------------\n",
+      "Calculation time: 7.367822 s.\n"
+=======
+      "Academic license - for non-commercial use only\n",
+      "Number of relu layers: 9\n",
+      "Number of hidden layers: 9\n",
       "Size of last hidden layer: 10\n"
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
      ]
     }
    ],
@@ -1254,7 +1306,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 374,
+<<<<<<< HEAD
+   "execution_count": 333,
+=======
+   "execution_count": 27,
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
    "metadata": {},
    "outputs": [
     {
@@ -1263,20 +1319,20 @@
      "text": [
       "--------- For Linear (over box) ----------\n",
       "[OUTPUT] Bounds: \n",
-      "array([[ 0.        ,  0.        ],\n",
-      "       [ 4.5207737 , 12.51038959],\n",
-      "       [ 1.04261372,  4.46541493],\n",
-      "       [ 0.28149916,  3.03626677],\n",
-      "       [ 0.        ,  1.32550132],\n",
-      "       [ 0.        ,  0.0726665 ],\n",
-      "       [ 0.        ,  0.        ],\n",
-      "       [ 1.60655949,  7.04623165],\n",
-      "       [ 0.        ,  4.62592517],\n",
-      "       [ 0.        ,  1.64466924]])\n",
+      "array([[   0.        , 4723.56179733],\n",
+      "       [   0.        , 6487.87576966],\n",
+      "       [   0.        , 7590.73599024],\n",
+      "       [   0.        , 8533.91822635],\n",
+      "       [   0.        , 7628.59796872],\n",
+      "       [   0.        , 6734.56493593],\n",
+      "       [   0.        , 7097.87055505],\n",
+      "       [   0.        , 8486.31763149],\n",
+      "       [   0.        , 8181.92151159],\n",
+      "       [   0.        , 8026.60453601]])\n",
       "[VERIFY] Verification status: \n",
       "can not be verified\n",
       "----------------------------\n",
-      "Calculation time: 0.405028 s.\n"
+      "Calculation time: 4.236956 s.\n"
      ]
     }
    ],
@@ -1301,12 +1357,12 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 375,
+   "execution_count": 28,
    "metadata": {},
    "outputs": [],
    "source": [
     "# params\n",
-    "lp_freq = 1`\n",
+    "lp_freq = 1\n",
     "lp_start = 0\n",
     "verbose = False\n",
     "\n",
@@ -1315,15 +1371,19 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 376,
+<<<<<<< HEAD
+   "execution_count": 336,
+=======
+   "execution_count": 29,
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Number of relu layers: 6\n",
-      "Number of hidden layers: 6\n",
+      "Number of relu layers: 9\n",
+      "Number of hidden layers: 9\n",
       "Size of last hidden layer: 10\n"
      ]
     }
@@ -1337,30 +1397,46 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 378,
+   "execution_count": 30,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
+<<<<<<< HEAD
+      "/home/riai2018/.local/lib/python3.6/site-packages/ipykernel_launcher.py:31: UserWarning: LB_hidden_box_list is set but will not be used because of lp_freq.\n",
+      "/home/riai2018/.local/lib/python3.6/site-packages/ipykernel_launcher.py:33: UserWarning: UB_hidden_box_list is set but will not be used because of lp_freq.\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
       "------------TIME------------\n",
-      "Total number of layers = 6\n",
-      "lp_list = [0, 1, 2, 3, 4, 5]\n",
-      "Time Solving LP: -2.135966 s.\n",
+      "lp_freq = 1\n",
+      "lp_start = 0\n",
+      "Time adding vars: 0.031228 s.\n",
+      "Time Solving LP: 132.197649 s.\n",
+=======
+      "------------TIME------------\n",
+      "Total number of layers = 9\n",
+      "lp_list = [0, 1, 2, 3, 4, 5, 6, 7, 8]\n",
+      "Time Solving LP: 77.512208 s.\n",
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
       "----------------------------\n",
       "--------- For Linear ----------\n",
       "[OUTPUT] Bounds: \n",
-      "array([[ 0.        ,  0.        ],\n",
-      "       [ 8.3489613 , 10.97670343],\n",
-      "       [ 2.04043512,  2.72894405],\n",
-      "       [ 0.63814575,  0.9444149 ],\n",
-      "       [ 0.        ,  0.34440683],\n",
-      "       [ 0.        ,  0.        ],\n",
-      "       [ 0.        ,  0.        ],\n",
-      "       [ 2.36502326,  3.33072802],\n",
-      "       [ 2.55719952,  3.11828011],\n",
-      "       [ 0.        ,  0.        ]])\n",
+      "array([[0.        , 0.        ],\n",
+      "       [4.00119618, 8.26337852],\n",
+      "       [0.04321544, 1.35046499],\n",
+      "       [0.        , 0.15846734],\n",
+      "       [0.        , 0.62339143],\n",
+      "       [0.        , 0.        ],\n",
+      "       [0.        , 0.48459624],\n",
+      "       [0.        , 2.40295945],\n",
+      "       [1.00752238, 2.57733033],\n",
+      "       [0.        , 0.29965822]])\n",
       "[VERIFY] Verification status: \n",
       "verified\n"
      ]
@@ -1391,43 +1467,85 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 383,
+<<<<<<< HEAD
+   "execution_count": 335,
+=======
+   "execution_count": 31,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "[1, 3, 5]\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "# params\n",
     "lp_freq = 2\n",
     "lp_start = 1\n",
     "verbose = True\n",
     "\n",
-    "lp_list = [i for i in range(lp_start, numlayer, lp_freq)]\n",
-    "print(lp_list)"
+    "lp_list = [i for i in range(lp_start, numlayer, lp_freq)]"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 384,
+   "execution_count": 32,
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Number of relu layers: 6\n",
-      "Number of hidden layers: 6\n",
+      "Number of relu layers: 9\n",
+      "Number of hidden layers: 9\n",
+<<<<<<< HEAD
+      "Size of last hidden layer: 10\n",
+      "------------TIME------------\n",
+      "lp_freq = 2\n",
+      "lp_start = 0\n",
+      "Time adding vars: 0.036904 s.\n",
+      "Time Solving LP: 92.150685 s.\n",
+      "----------------------------\n",
+      "--------- For Linear ----------\n",
+      "[OUTPUT] Bounds: \n",
+      "array([[  0.        , 512.88917165],\n",
+      "       [  0.        , 703.67064732],\n",
+      "       [  0.        , 818.41763514],\n",
+      "       [  0.        , 921.33360284],\n",
+      "       [  0.        , 823.47307481],\n",
+      "       [  0.        , 728.73521521],\n",
+      "       [  0.        , 768.14644079],\n",
+      "       [  0.        , 916.33517419],\n",
+      "       [  0.        , 885.67732852],\n",
+      "       [  0.        , 870.32127319]])\n",
+      "[VERIFY] Verification status: \n",
+      "can not be verified\n"
+=======
       "Size of last hidden layer: 10\n"
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
      ]
     }
    ],
    "source": [
+<<<<<<< HEAD
+    "# We follow the following notations:\n",
+    "# z_hat_{i} = W_i * z_i + b_i, where i = {1, . . . , k}, and z_hat_{k} = y (ouput of NN)\n",
+    "# z_i = max(z_hat_{i-1} , 0),  where i = {2, . . . , k}, and z_1 = x (input to NN)\n",
+    "\n",
+    "# for input layer:\n",
+    "# Variable lower bound: Note that any value less than -1e20 is treated as negative infinity. \n",
+    "# We follow the following notations:\n",
+    "# z_hat_{i} = W_i * z_i + b_i, where i = {1, . . . , k}, and z_hat_{k} = y (ouput of NN)\n",
+    "# z_i = max(z_hat_{i-1} , 0),  where i = {2, . . . , k}, and z_1 = x (input to NN)\n",
+    "\n",
+    "# for input layer:\n",
+    "# Variable lower bound: Note that any value less than -1e20 is treated as negative infinity. \n",
+    "\n",
+    "# params\n",
+    "lp_freq = 2\n",
+    "lp_start = 0\n",
+    "\n",
+    "m = get_model()\n",
+    "t_0 = time.time()\n",
+    "m, z, z_hat = add_all_vars(m, numlayer, LB_N0, UB_N0, UB_hidden_box_list)\n",
+=======
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
     "t_1 =time.time()\n",
     "LB_NN, UB_NN = perform_linear_layerwise(nn, numlayer, LB_N0, UB_N0, lp_list, \n",
     "                             LB_hidden_box_list, UB_hidden_box_list, verbose=verbose)\n",
@@ -1436,7 +1554,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 385,
+<<<<<<< HEAD
+   "execution_count": 319,
+=======
+   "execution_count": 33,
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
    "metadata": {},
    "outputs": [
     {
@@ -1444,28 +1566,78 @@
      "output_type": "stream",
      "text": [
       "------------TIME------------\n",
-      "Total number of layers = 6\n",
-      "lp_list = [1, 3, 5]\n",
-      "Time Solving LP: 1.474411 s.\n",
+<<<<<<< HEAD
+      "lp_freq = 2\n",
+      "lp_start = 0\n",
+      "Time adding vars: 0.024361 s.\n",
+      "Time Solving LP: 1.098888 s.\n",
       "----------------------------\n",
       "--------- For Linear ----------\n",
       "[OUTPUT] Bounds: \n",
       "array([[ 0.        ,  0.        ],\n",
-      "       [ 8.3489613 , 10.97670343],\n",
-      "       [ 2.04043512,  2.72894405],\n",
-      "       [ 0.63814575,  0.9444149 ],\n",
-      "       [ 0.        ,  0.34440683],\n",
+      "       [ 7.61166373, 11.25113921],\n",
+      "       [ 1.86097452,  2.98615304],\n",
+      "       [ 0.56715535,  1.11779903],\n",
+      "       [ 0.        ,  0.54556307],\n",
       "       [ 0.        ,  0.        ],\n",
       "       [ 0.        ,  0.        ],\n",
-      "       [ 2.36502326,  3.33072802],\n",
-      "       [ 2.55719952,  3.11828011],\n",
+      "       [ 2.27540678,  3.73894197],\n",
+      "       [ 2.04860124,  3.36552438],\n",
       "       [ 0.        ,  0.        ]])\n",
+=======
+      "Total number of layers = 9\n",
+      "lp_list = [1, 3, 5, 7]\n",
+      "Time Solving LP: 73.975551 s.\n",
+      "----------------------------\n",
+      "--------- For Linear ----------\n",
+      "[OUTPUT] Bounds: \n",
+      "array([[0.        , 0.        ],\n",
+      "       [4.00119618, 8.26337852],\n",
+      "       [0.04321544, 1.35046499],\n",
+      "       [0.        , 0.15846734],\n",
+      "       [0.        , 0.62339143],\n",
+      "       [0.        , 0.        ],\n",
+      "       [0.        , 0.48459624],\n",
+      "       [0.        , 2.40295945],\n",
+      "       [1.00752238, 2.57733033],\n",
+      "       [0.        , 0.29965822]])\n",
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
       "[VERIFY] Verification status: \n",
       "verified\n"
      ]
     }
    ],
    "source": [
+<<<<<<< HEAD
+    "# We follow the following notations:\n",
+    "# z_hat_{i} = W_i * z_i + b_i, where i = {1, . . . , k}, and z_hat_{k} = y (ouput of NN)\n",
+    "# z_i = max(z_hat_{i-1} , 0),  where i = {2, . . . , k}, and z_1 = x (input to NN)\n",
+    "\n",
+    "# for input layer:\n",
+    "# Variable lower bound: Note that any value less than -1e20 is treated as negative infinity. \n",
+    "# We follow the following notations:\n",
+    "# z_hat_{i} = W_i * z_i + b_i, where i = {1, . . . , k}, and z_hat_{k} = y (ouput of NN)\n",
+    "# z_i = max(z_hat_{i-1} , 0),  where i = {2, . . . , k}, and z_1 = x (input to NN)\n",
+    "\n",
+    "# for input layer:\n",
+    "# Variable lower bound: Note that any value less than -1e20 is treated as negative infinity. \n",
+    "\n",
+    "# params\n",
+    "lp_freq = 2\n",
+    "lp_start = 0\n",
+    "verbose = False\n",
+    "\n",
+    "m = get_model()\n",
+    "t_0 = time.time()\n",
+    "m, z, z_hat = add_all_vars(m, numlayer, LB_N0, UB_N0, UB_hidden_box_list)\n",
+    "t_1 =time.time()\n",
+    "LB_NN, UB_NN = perform_linear_layerwise(m, z, z_hat, nn, numlayer, \n",
+    "                                        lp_freq=lp_freq, lp_start=lp_start,\n",
+    "                                        LB_hidden_box_list=LB_hidden_box_list, \n",
+    "                                        UB_hidden_box_list=UB_hidden_box_list, verbose=verbose)\n",
+    "t_2 =time.time()\n",
+=======
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
     "print(\"------------TIME------------\")\n",
     "print(\"Total number of layers = %s\"% numlayer)\n",
     "print(\"lp_list = %s\"% lp_list)\n",
@@ -1478,11 +1650,11 @@
     "pprint(np.stack([LB_NN.squeeze(), UB_NN.squeeze()], axis = 1))\n",
     "print(\"[VERIFY] Verification status: \")\n",
     "_, flag = verify_network(LB_N0, UB_N0, LB_NN, UB_NN, \\\n",
-    "                         label, num_input_pixels = len(LB_N0), num_out_pixels = 10)\n",
-    "\n"
+    "                         label, num_input_pixels = len(LB_N0), num_out_pixels = 10)"
    ]
   },
   {
+<<<<<<< HEAD
    "cell_type": "markdown",
    "metadata": {},
    "source": [
@@ -1490,168 +1662,22 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 497,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "def analyse_nn_and_write(net_code, img_nrs, epsilon, log_file=None):\n",
-    "    \"\"\"\n",
-    "    Analyse Neural Network and write the result to a log file. Code heuristic yourself in this function\n",
-    "    INPUT:\n",
-    "        - net_code: Neural Network code, e.g. mnist_relu_4_1024\n",
-    "        - img_nrs: List of image nrs, e.g [0,1,2,3]\n",
-    "        - epsilon: Perturbation\n",
-    "        - log_file: File to write results\n",
-    "    OUTPUT:\n",
-    "        - verified_flag: Verification flag. True if network was verified against perturbation.\n",
-    "    \"\"\"\n",
-    "    nn_root_path = '/home/riai2018/mnist_nets'\n",
-    "    img_root_path = '/home/riai2018/mnist_images'\n",
-    "    log_root_path = '/home/riai2018/log'\n",
-    "    log_base_name = 'log_'\n",
-    "    verified_counter, true_label_counter = 0, 0\n",
-    "    stamp = '_{:%Y-%m-%d %H:%M:%S}'.format(datetime.now())\n",
-    "    if not os.path.isdir(log_root_path):\n",
-    "        os.makedirs(log_root_path)\n",
-    "    net_path = os.path.join(nn_root_path, net_code + '.txt')\n",
-    "    if log_file is None:\n",
-    "        log_file = os.path.join(log_root_path, log_base_name + net_code + '_epsilon_' + str(epsilon) + stamp +'.txt')\n",
-    "    \n",
-    "    with open(log_file, \"+a\") as f:\n",
-    "        f.write(\"Epsilon %s\\n\\n\" % epsilon)\n",
-    "    assert max(img_nrs) <= 99\n",
-    "    assert min(img_nrs) >= 0\n",
-    "    t_start = time.time()\n",
-    "    \n",
-    "    for img_nr in img_nrs:\n",
-    "        img_path = os.path.join(img_root_path, 'img' + str(img_nr) + '.txt')\n",
-    "\n",
-    "        # Load NN and perturbe image\n",
-    "        LB_N0, UB_N0, nn, label, flag_wrong_label = load_nn(net_path, img_path, epsilon)\n",
-    "        true_label_counter += int(not flag_wrong_label)\n",
-    "        numlayer = nn.numlayer\n",
-    "\n",
-    "        # You heuristics come here:\n",
-    "        lp_freq = 2\n",
-    "        lp_start = 1\n",
-    "        verbose = True\n",
-    "        numlayer = nn.numlayer\n",
-    "        lp_list = [i for i in range(lp_start, numlayer, lp_freq)]\n",
-    "\n",
-    "        # Get Bounds\n",
-    "        t1 =time.time()\n",
-    "        LB_hidden_box_list, UB_hidden_box_list, LB_NN, UB_NN = perform_box_analysis(nn, LB_N0, UB_N0, verbose = False)\n",
-    "        LB_NN, UB_NN = perform_linear_layerwise(nn, numlayer, LB_N0, UB_N0, lp_list, \n",
-    "                                     LB_hidden_box_list, UB_hidden_box_list, verbose=verbose)\n",
-    "        # Check if NN was verified\n",
-    "        _, verified_flag = verify_network(LB_N0, UB_N0, LB_NN, UB_NN, label, num_input_pixels = len(LB_N0), num_out_pixels = 10)\n",
-    "        verified_counter += int(verified_flag)\n",
-    "       \n",
-    "        t2 = time.time()\n",
-    "\n",
-    "        # Write to logfile\n",
-    "        with open(log_file, \"+a\") as f:\n",
-    "            if not flag_wrong_label and verified_flag:\n",
-    "                line = \"{:>10} img {:>10} verified label {:>10} time {:>10}s\\n\".format(net_code, img_nr, label, t2-t1)\n",
-    "            elif not flag_wrong_label and not verified_flag:\n",
-    "                line = \"{:>10} img {:>10} failed label {:>10}\\n\".format(net_code, img_nr, label)\n",
-    "            else:\n",
-    "                line = \"{:>10} img {:>10} not considered\\n\".format(net_code, img_nr)\n",
-    "            f.write(line)\n",
-    "            \n",
-    "    with open(log_file, \"+a\") as f:\n",
-    "        line = []\n",
-    "        line.append(\"analysis precision  {:>2} /  {:>2}\\n\".format(verified_counter, true_label_counter))\n",
-    "        line.append(\"Total Time {}\".format(t_start-time.time()))\n",
-    "        for l in line:\n",
-    "            f.write(l)\n",
-    "\n",
-    "    return"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 498,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "All Neural Networks: ['mnist_relu_3_10', 'mnist_relu_3_20', 'mnist_relu_3_50', 'mnist_relu_4_1024', 'mnist_relu_6_100', 'mnist_relu_6_20', 'mnist_relu_6_200', 'mnist_relu_6_50', 'mnist_relu_9_100', 'mnist_relu_9_200']\n"
-     ]
-    }
-   ],
-   "source": [
-    "# Create list of all NN and images\n",
-    "\n",
-    "directory = '../mnist_nets/'\n",
-    "nn_list  = os.listdir(directory)\n",
-    "nn_list = [f.replace('.txt','') for f in nn_list]\n",
-    "nn_list.sort()\n",
-    "print(\"All Neural Networks: %s\" % nn_list)\n",
-    "directory = '../mnist_images/'\n",
-    "img_nrs  = np.arange(100).tolist()\n",
-    "\n",
-    "# Create list of all groundtruth NN and epsilons."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 499,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "True label: 7\n",
-      "Number of relu layers: 3\n",
-      "Number of hidden layers: 3\n",
-      "Size of last hidden layer: 10\n",
-      "verified\n",
-      "True label: 6\n",
-      "image not correctly classified by the network. expected label  4  classified label:  6\n",
-      "Number of relu layers: 3\n",
-      "Number of hidden layers: 3\n",
-      "Size of last hidden layer: 10\n",
-      "verified\n",
-      "True label: 2\n",
-      "Number of relu layers: 3\n",
-      "Number of hidden layers: 3\n",
-      "Size of last hidden layer: 10\n",
-      "verified\n",
-      "True label: 9\n",
-      "Number of relu layers: 3\n",
-      "Number of hidden layers: 3\n",
-      "Size of last hidden layer: 10\n",
-      "verified\n",
-      "True label: 0\n",
-      "Number of relu layers: 3\n",
-      "Number of hidden layers: 3\n",
-      "Size of last hidden layer: 10\n",
-      "verified\n"
-     ]
-    }
-   ],
-   "source": [
-    "analyse_nn_and_write(nn_list[0], [0,33,1,12,10] , 0.01)"
-   ]
-  },
-  {
+=======
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
    "cell_type": "code",
    "execution_count": null,
    "metadata": {},
    "outputs": [],
+<<<<<<< HEAD
+   "source": [
+    "def test_nn(netname, specname, epsilon)\n",
+    "    LB_N0, UB_N0, nn, label, flag_wrong_label = load_nn(netname,\n",
+    "                                                specname, epsilon)\n",
+    "    "
+   ]
+=======
    "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
+>>>>>>> b536b1edf410a0a16b8b2bcfd0618b3a449bc664
   }
  ],
  "metadata": {
