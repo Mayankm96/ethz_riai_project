@@ -230,6 +230,7 @@ if __name__ == '__main__':
     
     label, _ = analyze(nn,LB_N0,UB_N0,0)
     start = time.time()
+
     if(label==int(x0_low[0])):
         LB_N0, UB_N0 = get_perturbed_image(x0_low,epsilon)
         _, verified_flag = analyze(nn,LB_N0,UB_N0,label)
