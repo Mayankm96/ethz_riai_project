@@ -939,98 +939,6 @@ def load_nn(netname, specname, epsilon, verbose=False):
 
     return LB_N0, UB_N0, nn, label, flag_wrong_label
 
-def analyse_nn_and_write(net_code, img_nrs, epsilon, lp_list, log_file=None, verbose=True, write=True, **kwargs):
-    """
-    Analyse Neural Network and write the result to a log file. Code heuristic yourself in this function
-    INPUT:
-        - net_code: Neural Network code, e.g. mnist_relu_4_1024
-        - img_nrs: List of image nrs, e.g [0,1,2,3]
-        - epsilon: Perturbation
-        - log_file: File to write results
-    OUTPUT:
-        - verified_flag: Verification flag. True if network was verified against perturbation.
-    """
-    nn_root_path = '/home/riai2018/mnist_nets'
-    img_root_path = '/home/riai2018/mnist_images'
-    log_root_path = '/home/riai2018/log'
-    log_base_name = 'log_'
-    verified_counter, true_label_counter = 0, 0
-    stamp = '_{:%Y-%m-%d_%H:%M:%S}'.format(datetime.now())
-    if not os.path.isdir(log_root_path):
-        os.makedirs(log_root_path)
-    net_path = os.path.join(nn_root_path, net_code + '.txt')
-
-    if write:
-        if log_file is None:
-            log_file = os.path.join(log_root_path, log_base_name + net_code + '_epsilon_' + str(epsilon))
-            if kwargs is not None:
-                log_file = log_file + '_'  + str(kwargs) + "_"
-            log_file = log_file + stamp +'.txt'
-
-        with open(log_file, "+a") as f:
-            f.write("Epsilon %s kwargs: %s \n\n" % (epsilon, kwargs))
-
-    assert max(img_nrs) <= 99
-    assert min(img_nrs) >= 0
-    t_start = time.time()
-
-    runtimes = []
-    statistics = []
-
-    for img_nr in img_nrs:
-        img_path = os.path.join(img_root_path, 'img' + str(img_nr) + '.txt')
-
-        # Load NN and perturbe image
-        LB_N0, UB_N0, nn, label, flag_wrong_label = load_nn(net_path, img_path, epsilon)
-        true_label_counter += int(not flag_wrong_label)
-        numlayer = nn.numlayer
-
-        # Get Bounds
-        t1 =time.time()
-        LB_hidden_box_list, UB_hidden_box_list, LB_NN, UB_NN = perform_box_analysis(nn, LB_N0, UB_N0, verbose = False)
-        LB_NN, UB_NN, stats = perform_linear_layerwise(nn, numlayer, LB_N0, UB_N0, lp_list,
-                                     LB_hidden_box_list, UB_hidden_box_list, label, verbose=verbose, save_stats=True,
-                                                       **kwargs)
-        statistics.append(stats)
-        # Check if NN was verified
-        _, verified_flag = verify_network(LB_N0, UB_N0, LB_NN, UB_NN, label, num_input_pixels = len(LB_N0), num_out_pixels = 10)
-        verified_counter += int(verified_flag)
-
-        t2 = time.time()
-
-        runtimes.append(t2-t1)
-
-        # Write to logfile
-        if write:
-            with open(log_file, "+a") as f:
-                if not flag_wrong_label and verified_flag:
-                    line = "{:>10} img_{:>2} verified label {:>2} time {:>5.4f} s\n\n".format(net_code, img_nr, label, t2-t1)
-                elif not flag_wrong_label and not verified_flag:
-                    line = "{:>10} img_{:>2} failed label {:>2} time {:>5.4f} s\n\n".format(net_code, img_nr, label, t2-t1)
-                else:
-                    line = "{:>10} img_{:>2} not considered\n\n".format(net_code, img_nr)
-                f.write(line)
-                f.write("Layerwise_time: %s \n" % stats['time'])
-                bounds = np.stack([stats['LB_hat'][-1], stats['UB_hat'][-1]], axis = 1)
-                f.write("Final Bounds: %s \n" % (bounds))
-                f.write("Final Verification Margin (negative is not verified): %3f \n" % stats['margin'][-1])
-                f.write("Margin per Neuron (more positive is better): %9f \n" % stats['margin_per_neuron'][-1])
-                f.write("Margin per Second (more positve is better): %10f\n" % stats['margin_per_time'][-1])
-                f.write("\n-------------------------------------------------------------------------------------\n\n")
-
-    if write:
-        with open(log_file, "+a") as f:
-            line = []
-            line.append("\n--------------------- \n")
-            line.append("analysis precision  {:>2} /  {:>2}\n".format(verified_counter, true_label_counter))
-            line.append("Average Time: {:>5.4f} \n".format((time.time() - t_start)/len(img_nrs)))
-            line.append("Max Time: {:>5.4f} \n".format(max(runtimes)))
-            line.append("Min Time: {:>5.4f} \n".format(min(runtimes)))
-            for l in line:
-                f.write(l)
-
-    return statistics
-
 def analyse_submission(LB_N0, UB_N0, nn, label, epsilon, verbose=False):
     """
     Analyse neural network an return if it can be verified or not.
@@ -1043,6 +951,10 @@ def analyse_submission(LB_N0, UB_N0, nn, label, epsilon, verbose=False):
     OUTPUT:
         - verified_flag: Verification flag. True if network was verified against perturbation.
     """
+    final_submission = True
+    save_stats=True
+    if final_submission:
+        save_stats=False
 
     # You heuristics come here:
     numlayer = nn.numlayer
@@ -1055,9 +967,12 @@ def analyse_submission(LB_N0, UB_N0, nn, label, epsilon, verbose=False):
 
     # Get Bounds
     LB_hidden_box_list, UB_hidden_box_list, LB_NN, UB_NN = perform_box_analysis(nn, LB_N0, UB_N0, verbose = False)
-    LB_NN, UB_NN, _ = perform_linear_layerwise(nn, numlayer, LB_N0, UB_N0, lp_list,
+    LB_NN, UB_NN, stats = perform_linear_layerwise(nn, numlayer, LB_N0, UB_N0, lp_list,
                                                LB_hidden_box_list, UB_hidden_box_list, label, verbose=verbose,
-                                               influence_threshold=influence_threshold)
+                                               save_stats=save_stats, influence_threshold=influence_threshold)
+
+    if not final_submission:
+        print("Margin Final Layer: %3f" % stats['margin'][-1])
 
     # Check if NN was verified
     _, verified_flag = verify_network(LB_N0, UB_N0, LB_NN, UB_NN, label, num_input_pixels = len(LB_N0), num_out_pixels = 10)
