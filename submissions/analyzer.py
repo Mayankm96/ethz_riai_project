@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[144]:
-
+#################################################################
+# Name: Manuel Breitenstein, Mayank Mittal
+# Course: Reliable and Interpretable AI (HS 2018)
+#################################################################
 
 import sys
 sys.path.insert(0, '../ELINA/python_interface/')
@@ -30,17 +32,6 @@ import warnings
 
 libc = CDLL(find_library('c'))
 cstdout = c_void_p.in_dll(libc, 'stdout')
-
-
-# In[145]:
-
-
-# Import for debugging in jupyter notebook
-from IPython.core.debugger import set_trace #TODO remove at end.
-
-
-# In[146]:
-
 
 class layers:
     def __init__(self):
@@ -951,7 +942,6 @@ def analyse_submission(LB_N0, UB_N0, nn, label, epsilon, verbose=False):
     OUTPUT:
         - verified_flag: Verification flag. True if network was verified against perturbation.
     """
-    save_stats=False
 
     # You heuristics come here:
     numlayer = nn.numlayer
@@ -964,14 +954,12 @@ def analyse_submission(LB_N0, UB_N0, nn, label, epsilon, verbose=False):
 
     # Get Bounds
     LB_hidden_box_list, UB_hidden_box_list, LB_NN, UB_NN = perform_box_analysis(nn, LB_N0, UB_N0, verbose = False)
-    LB_NN, UB_NN, stats = perform_linear_layerwise(nn, numlayer, LB_N0, UB_N0, lp_list,
+    LB_NN, UB_NN, _ = perform_linear_layerwise(nn, numlayer, LB_N0, UB_N0, lp_list,
                                                LB_hidden_box_list, UB_hidden_box_list, label, verbose=verbose,
-                                               save_stats=save_stats, influence_threshold=influence_threshold)
-
+                                               influence_threshold=influence_threshold)
 
     # Check if NN was verified
     _, verified_flag = verify_network(LB_N0, UB_N0, LB_NN, UB_NN, label, num_input_pixels = len(LB_N0), num_out_pixels = 10)
-
 
     return verified_flag
 
