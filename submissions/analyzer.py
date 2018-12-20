@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[144]:
-
+#################################################################
+# Name: Manuel Breitenstein, Mayank Mittal
+# Course: Reliable and Interpretable AI (HS 2018)
+#################################################################
 
 import sys
 sys.path.insert(0, '../ELINA/python_interface/')
@@ -30,17 +32,6 @@ import warnings
 
 libc = CDLL(find_library('c'))
 cstdout = c_void_p.in_dll(libc, 'stdout')
-
-
-# In[145]:
-
-
-# Import for debugging in jupyter notebook
-from IPython.core.debugger import set_trace #TODO remove at end.
-
-
-# In[146]:
-
 
 class layers:
     def __init__(self):
